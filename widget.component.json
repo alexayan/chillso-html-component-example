@@ -1,3 +1,6 @@
 {
-  "name": "test"
+  "name": "test",
+  "description": "description",
+  "type": "html",
+  "main": "index.html"
 }
