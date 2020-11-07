@@ -2,5 +2,7 @@
   "name": "test",
   "description": "descriptiondescriptiondescriptiondescriptiondescription",
   "type": "html",
-  "main": "index.html"
+  "html": {
+    "main": "index.html"
+  }
 }
