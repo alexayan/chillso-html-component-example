@@ -3,7 +3,8 @@
   "description": "descriptiondescriptiondescriptiondescriptiondescription",
   "type": "html",
   "html": {
-    "main": "index.html"
+    "main": "index.html",
+    "static": "assets"
   },
   "userConfig": {}
 }
