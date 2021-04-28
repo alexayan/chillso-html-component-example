@@ -7,7 +7,7 @@
       window.addEventListener("message", (event) => {
         var origin = event.origin
         console.log(event);
-        document.getElementById('t').innerHTML = 'ddd';
+        document.getElementById('t').innerHTML = 'new';
         window.parent.postMessage('message received.', '*');
       }, false);
     </script>
