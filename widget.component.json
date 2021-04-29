@@ -8,29 +8,38 @@
   },
   "userConfig": {
     "dataSchema": {
-      "title": "Files",
+      "title": "Date and time widgets",
       "type": "object",
       "properties": {
-        "file": {
-          "type": "string",
-          "format": "data-url",
-          "title": "Single file",
-          "maxLength": 2000
-        },
-        "files": {
-          "type": "array",
-          "title": "Multiple files",
-          "items": {
-            "type": "string",
-            "format": "data-url",
-            "maxLength": 2000
+        "native": {
+          "title": "Native",
+          "description": "May not work on some browsers, notably Firefox Desktop and IE.",
+          "type": "object",
+          "properties": {
+            "datetime": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            }
           }
         },
-        "filesAccept": {
-          "type": "string",
-          "format": "data-url",
-          "title": "Single File with Accept attribute",
-          "maxLength": 2000
+        "alternative": {
+          "title": "Alternative",
+          "description": "These work on most platforms.",
+          "type": "object",
+          "properties": {
+            "alt-datetime": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "alt-date": {
+              "type": "string",
+              "format": "date"
+            }
+          }
         }
       }
     }
