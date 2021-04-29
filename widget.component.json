@@ -17,7 +17,8 @@
           "properties": {
             "email": {
               "type": "string",
-              "format": "email"
+              "format": "email",
+              "maxLength": 30
             },
             "uri": {
               "type": "string",
