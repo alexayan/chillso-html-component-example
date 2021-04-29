@@ -8,108 +8,26 @@
   },
   "userConfig": {
     "dataSchema": {
-      "title": "Widgets",
+      "title": "Files",
       "type": "object",
       "properties": {
-        "stringFormats": {
-          "type": "object",
-          "title": "String formats",
-          "properties": {
-            "email": {
-              "type": "string",
-              "format": "email",
-              "maxLength": 30
-            },
-            "uri": {
-              "type": "string",
-              "format": "uri",
-              "maxLength": 30
-            }
+        "file": {
+          "type": "string",
+          "format": "data-url",
+          "title": "Single file"
+        },
+        "files": {
+          "type": "array",
+          "title": "Multiple files",
+          "items": {
+            "type": "string",
+            "format": "data-url"
           }
         },
-        "boolean": {
-          "type": "object",
-          "title": "Boolean field",
-          "properties": {
-            "default": {
-              "type": "boolean",
-              "title": "checkbox (default)",
-              "description": "This is the checkbox-description"
-            },
-            "radio": {
-              "type": "boolean",
-              "title": "radio buttons",
-              "description": "This is the radio-description"
-            },
-            "select": {
-              "type": "boolean",
-              "title": "select box",
-              "description": "This is the select-description"
-            }
-          }
-        },
-        "string": {
-          "type": "object",
-          "title": "String field",
-          "properties": {
-            "default": {
-              "type": "string",
-              "title": "text input (default)",
-              "maxLength": 30
-            },
-            "textarea": {
-              "type": "string",
-              "title": "textarea",
-              "maxLength": 30
-            },
-            "placeholder": {
-              "type": "string",
-              "maxLength": 30
-            },
-            "color": {
-              "type": "string",
-              "title": "color picker",
-              "default": "#151ce6",
-              "maxLength": 30
-            }
-          }
-        },
-        "secret": {
+        "filesAccept": {
           "type": "string",
-          "default": "I'm a hidden string."
-        },
-        "disabled": {
-          "type": "string",
-          "title": "A disabled field",
-          "default": "I am disabled."
-        },
-        "readonly": {
-          "type": "string",
-          "title": "A readonly field",
-          "default": "I am read-only."
-        },
-        "readonly2": {
-          "type": "string",
-          "title": "Another readonly field",
-          "default": "I am also read-only.",
-          "readOnly": true
-        },
-        "widgetOptions": {
-          "title": "Custom widget with options",
-          "type": "string",
-          "default": "I am yellow"
-        },
-        "selectWidgetOptions": {
-          "title": "Custom select widget with options",
-          "type": "string",
-          "enum": [
-            "foo",
-            "bar"
-          ],
-          "enumNames": [
-            "Foo",
-            "Bar"
-          ]
+          "format": "data-url",
+          "title": "Single File with Accept attribute"
         }
       }
     }
