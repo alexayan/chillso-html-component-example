@@ -8,29 +8,30 @@
   },
   "userConfig": {
     "dataSchema": {
-      "title": "Files",
+      "title": "A registration form",
+      "description": "A simple form example.",
       "type": "object",
+      "required": [
+        "firstName",
+        "lastName"
+      ],
       "properties": {
-        "file": {
+        "firstName": {
           "type": "string",
-          "format": "data-url",
-          "title": "Single file",
-          "maxLength": 222
+          "title": "First name",
+          "default": "Chuck",
+          "maxLength": 100
         },
-        "files": {
-          "type": "array",
-          "title": "Multiple files",
-          "items": {
-            "type": "string",
-            "format": "data-url",
-            "maxLength": 222
-          }
-        },
-        "filesAccept": {
+        "lastName": {
           "type": "string",
-          "format": "data-url",
-          "title": "Single File with Accept attribute",
-          "maxLength": 222
+          "title": "Last name",
+          "maxLength": 100
+        },
+        "telephone": {
+          "type": "string",
+          "title": "Telephone",
+          "minLength": 10,
+          "maxLength": 100
         }
       }
     }
