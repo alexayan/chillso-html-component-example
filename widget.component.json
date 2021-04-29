@@ -22,7 +22,8 @@
             },
             "uri": {
               "type": "string",
-              "format": "uri"
+              "format": "uri",
+              "maxLength": 30
             }
           }
         },
@@ -53,19 +54,23 @@
           "properties": {
             "default": {
               "type": "string",
-              "title": "text input (default)"
+              "title": "text input (default)",
+              "maxLength": 30
             },
             "textarea": {
               "type": "string",
-              "title": "textarea"
+              "title": "textarea",
+              "maxLength": 30
             },
             "placeholder": {
-              "type": "string"
+              "type": "string",
+              "maxLength": 30
             },
             "color": {
               "type": "string",
               "title": "color picker",
-              "default": "#151ce6"
+              "default": "#151ce6",
+              "maxLength": 30
             }
           }
         },
