@@ -18,11 +18,13 @@
           "properties": {
             "datetime": {
               "type": "string",
-              "format": "date-time"
+              "format": "date-time",
+              "maxLength": 200
             },
             "date": {
               "type": "string",
-              "format": "date"
+              "format": "date",
+              "maxLength": 200
             }
           }
         },
@@ -33,11 +35,13 @@
           "properties": {
             "alt-datetime": {
               "type": "string",
-              "format": "date-time"
+              "format": "date-time",
+              "maxLength": 200
             },
             "alt-date": {
               "type": "string",
-              "format": "date"
+              "format": "date",
+              "maxLength": 200
             }
           }
         }
