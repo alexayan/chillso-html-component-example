@@ -181,6 +181,7 @@
           }
           resolve(data.data);
         }
+        console.log('api getUserConfig')
         window.parent.postMessage({
           type: 'api',
           method: 'getUserConfig',
