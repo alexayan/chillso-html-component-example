@@ -213,13 +213,13 @@
         setCodeShow(false)
       }}>
         <div className="info">
-          <img className="avatar" src={config.avatar[0]} />
+          <img className="avatar" src={config.avatar} />
           <div className="name">{config.name}</div>
           <div className="desc">“{config.sponsor}”</div>
           <div className="btn" onClick={showCode}>{config.btnText}</div>
         </div>
         <div className={isCodeShow ? 'qrcode show' : 'qrcode'} onClick={e => e.stopPropagation()}>
-          <img src={config.qrcode[0]} />
+          <img src={config.qrcode} />
           <div className="tip">微信扫一扫{config.btnText}</div>
         </div>
       </div>;
