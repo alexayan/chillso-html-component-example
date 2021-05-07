@@ -162,7 +162,7 @@
 
     window.addEventListener("message", (event) => {
       console.log('recv message', event);
-      const type = event.type;
+      const type = event.data.type;
       if (type === 'callback_resp') {
         const callbackId = event.data.callbackId;
         const callback = callbacks[callbackId];
