@@ -8,42 +8,39 @@
   },
   "userConfig": {
     "dataSchema": {
-      "title": "Date and time widgets",
       "type": "object",
       "properties": {
-        "native": {
-          "title": "Native",
-          "description": "May not work on some browsers, notably Firefox Desktop and IE.",
-          "type": "object",
-          "properties": {
-            "datetime": {
-              "type": "string",
-              "format": "date-time",
-              "maxLength": 200
-            },
-            "date": {
-              "type": "string",
-              "format": "date",
-              "maxLength": 200
-            }
-          }
+        "btnText": {
+          "type": "string",
+          "maxLength": 200,
+          "title": "btnText",
+          "default": "赞赏作者"
         },
-        "alternative": {
-          "title": "Alternative",
-          "description": "These work on most platforms.",
-          "type": "object",
-          "properties": {
-            "alt-datetime": {
-              "type": "string",
-              "format": "date-time",
-              "maxLength": 200
-            },
-            "alt-date": {
-              "type": "string",
-              "format": "date",
-              "maxLength": 200
-            }
-          }
+        "avatar": {
+          "type": "string",
+          "format": "uri",
+          "maxLength": 200,
+          "title": "avatar",
+          "default": "https://resource.nocode.com/upload/20210402/a4fd60e4-eba0-4735-bd0e-476498e53c00"
+        },
+        "sponsor": {
+          "type": "string",
+          "maxLength": 200,
+          "title": "sponsor",
+          "default": " 万物之中，希望至美 "
+        },
+        "qrcode": {
+          "type": "string",
+          "format": "uri",
+          "maxLength": 200,
+          "title": "qrcode",
+          "default": "https://resource.nocode.com/upload/20210402/d8cf1615-a542-4556-99c3-63554ac67c00"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 200,
+          "title": "name",
+          "default": "yan"
         }
       }
     }

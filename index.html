@@ -1,15 +1,230 @@
 <html>
-  <head></head>
-  <body>
-    <p id="t">test 1</p>
-    <script>
-      document.getElementById('t').innerHTML = 'aaa';
-      window.addEventListener("message", (event) => {
-        var origin = event.origin
-        console.log(event);
-        document.getElementById('t').innerHTML = 'new 1';
-        window.parent.postMessage('message received.', '*');
-      }, false);
-    </script>
-  </body>
+
+<head>
+  <style>
+    .container {
+      height: 100vh;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      user-select: none;
+      font-family: "PingFang SC", "Helvetica Neue", sans-serif;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .info .avatar {
+      width: 25vh;
+      height: 25vh;
+      border-radius: 50%;
+    }
+
+    .info .name {
+      font-size: 6vh;
+      text-align: center;
+      margin-top: 4vh;
+    }
+
+    .info .desc {
+      font-size: 7vh;
+      text-align: center;
+      margin-top: 4vh;
+    }
+
+    .info .btn {
+      background-color: #fa5151;
+      color: #ffffff;
+      padding: 4vh 12vh;
+      margin-top: 9vh;
+      font-size: 6vh;
+      font-weight: 700;
+      border-radius: 1vh;
+      cursor: pointer;
+      transition: background-color ease 0.25s;
+    }
+
+    .info .btn:hover {
+      background-color: #d33434;
+    }
+
+    .info .btn::before {
+      content: "";
+      margin: -0.2em 4vh 0 -4px;
+      display: inline-block;
+      vertical-align: middle;
+      width: 6vh;
+      height: 6vh;
+      -webkit-mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='17' viewBox='0 0 16 17'%3E  %3Cg fill='none' fill-rule='evenodd'%3E    %3Cpath stroke='%23FFF' stroke-width='1.601' d='M12.062 6.241l-.028-.004c-.393-.057-.6-.31-.693-.605a1.313 1.313 0 0 1-.056-.334 6.612 6.612 0 0 1 0-.553c.02-.864-.012-1.406-.164-1.99a3.838 3.838 0 0 0-.103-.337l-.028-.097a2.35 2.35 0 0 0-.372-.782c-.372-.52-.879-.792-1.638-.73-.808.065-1.18.74-1.186 1.837v.008c-.005.78-.02 1.183-.079 1.695-.142 1.219-.496 2.133-1.235 2.684-.521.39-1.36.595-2.5.714a21.25 21.25 0 0 1-2.383.104l-.06-.001c-.125 0-.64.606-.64.837l-.093 6.701c-.039.508.282.812.733.812h9.052c.886 0 1.58-.127 2.342-.596a4.1 4.1 0 0 0 1.178-1.118c1.118-1.561 1.27-2.994.92-6.267-.093-.858-.873-1.719-1.824-1.853l-1.143-.125zm.82-1.034s0 0 0 0v-.002z'/%3E    %3Cpath fill='%23FFF' d='M8.331 12.96a.368.368 0 0 1-.485-.146l-.024-.053-1.796-2.037c-.01-.023.041.141-.018-.076-.058-.218.2-.499.418-.427.218.071.079.013.11.036l1.346.895a.551.551 0 0 0 .49.055l4.141-3.159c.49-.132.595.002.384.475L8.37 12.938l-.04.023z'/%3E  %3C/g%3E%3C/svg%3E") no-repeat 50% 50%;
+      mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='17' viewBox='0 0 16 17'%3E  %3Cg fill='none' fill-rule='evenodd'%3E    %3Cpath stroke='%23FFF' stroke-width='1.601' d='M12.062 6.241l-.028-.004c-.393-.057-.6-.31-.693-.605a1.313 1.313 0 0 1-.056-.334 6.612 6.612 0 0 1 0-.553c.02-.864-.012-1.406-.164-1.99a3.838 3.838 0 0 0-.103-.337l-.028-.097a2.35 2.35 0 0 0-.372-.782c-.372-.52-.879-.792-1.638-.73-.808.065-1.18.74-1.186 1.837v.008c-.005.78-.02 1.183-.079 1.695-.142 1.219-.496 2.133-1.235 2.684-.521.39-1.36.595-2.5.714a21.25 21.25 0 0 1-2.383.104l-.06-.001c-.125 0-.64.606-.64.837l-.093 6.701c-.039.508.282.812.733.812h9.052c.886 0 1.58-.127 2.342-.596a4.1 4.1 0 0 0 1.178-1.118c1.118-1.561 1.27-2.994.92-6.267-.093-.858-.873-1.719-1.824-1.853l-1.143-.125zm.82-1.034s0 0 0 0v-.002z'/%3E    %3Cpath fill='%23FFF' d='M8.331 12.96a.368.368 0 0 1-.485-.146l-.024-.053-1.796-2.037c-.01-.023.041.141-.018-.076-.058-.218.2-.499.418-.427.218.071.079.013.11.036l1.346.895a.551.551 0 0 0 .49.055l4.141-3.159c.49-.132.595.002.384.475L8.37 12.938l-.04.023z'/%3E  %3C/g%3E%3C/svg%3E") no-repeat 50% 50%;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+      background-color: currentColor;
+    }
+
+    .qrcode {
+      position: absolute;
+      top: 0px;
+      background: #fff;
+      box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.08);
+      letter-spacing: normal;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 4px;
+      padding: 4vh;
+      transition: all ease 0.25s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: -1;
+      opacity: 0;
+    }
+
+    .qrcode.show {
+      z-index: 1;
+      opacity: 1;
+    }
+
+    .qrcode img {
+      width: 60vh;
+      height: 60vh;
+    }
+
+    .qrcode .tip {
+      font-size: 5vh;
+      margin-top: 5vh;
+    }
+
+    .qrcode:hover {
+      cursor: pointer;
+      transform: scale(1.5);
+      transform-origin: 50% 0;
+    }
+
+    @media screen and (max-width: 520px) {
+      .info .avatar {
+        width: 48px;
+        height: 48px;
+      }
+
+      .info .name {
+        margin-top: 12px;
+        font-size: 15px;
+      }
+
+      .info .desc {
+        font-size: 17px;
+        margin-top: 16px;
+      }
+
+      .info .btn {
+        padding: 8px 24px;
+        font-size: 16px;
+        margin-top: 24px;
+      }
+
+      .info .btn::before {
+        margin: -0.2em 10px 0 -4px;
+        width: 16px;
+        height: 17px;
+      }
+
+      .qrcode {
+        border-radius: 4px;
+        padding: 8px;
+      }
+
+      .qrcode img {
+        width: 140px;
+        height: 140px;
+      }
+
+      .qrcode .tip {
+        font-size: 13px;
+        margin-top: 10px;
+      }
+    }
+  </style>
+  <script src="https://resource.nocode.com/assets/react.development.js"></script>
+  <script src="https://resource.nocode.com/assets/react-dom.development.js"></script>
+  <script src="https://resource.nocode.com/assets/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const callbacks = {};
+    let count = 1;
+
+    window.addEventListener("message", (event) => {
+      console.log('recv message', event);
+      const type = event.type;
+      if (type === 'callback_resp') {
+        const callbackId = event.data.callbackId;
+        const callback = callbacks[callbackId];
+        if (callback) {
+          callback(event.data);
+        }
+      }
+    }, false);
+  
+    async function getUserConfig() {
+      return new Promise((resolve, reject) => {
+        const callbackId = `cb-${count++}`;
+        callbacks[callbackId] = function (data) {
+          if (data.error) {
+            return reject(new Error(data.error));
+          }
+          resolve(data.data);
+        }
+        window.parent.postMessage({
+          type: 'api',
+          method: 'getUserConfig',
+          callbackId
+        }, '*');
+      })
+    }  
+  </script>
+  <script type="text/babel">
+    function WechatReword() {
+      const [isCodeShow, setCodeShow] = React.useState(false);
+      const [config, setConfig] = React.useState(null);
+      function showCode(e) {
+        e.stopPropagation();
+        setCodeShow(true)
+      }
+
+      React.useEffect(() => {
+        getUserConfig().then((cfg) => {
+          setConfig(cfg);
+        })
+      }, [])
+
+      if (!config) {
+        return null;
+      }
+
+      return <div className="container" onMouseLeave={() => setCodeShow(false)} onClick={() => {
+        setCodeShow(false)
+      }}>
+        <div className="info">
+          <img className="avatar" src={config.avatar[0]} />
+          <div className="name">{config.name}</div>
+          <div className="desc">“{config.sponsor}”</div>
+          <div className="btn" onClick={showCode}>{config.btnText}</div>
+        </div>
+        <div className={isCodeShow ? 'qrcode show' : 'qrcode'} onClick={e => e.stopPropagation()}>
+          <img src={config.qrcode[0]} />
+          <div className="tip">微信扫一扫{config.btnText}</div>
+        </div>
+      </div>;
+    }
+    ReactDOM.render(<WechatReword />, document.getElementById('root'));
+  </script>
+</body>
+
 </html>
