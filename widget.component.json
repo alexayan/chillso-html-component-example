@@ -41,15 +41,14 @@
           "maxLength": 200,
           "title": "name",
           "default": "yan"
+        },
+        "password": {
+          "type": "string",
+          "maxLength": 200,
+          "title": "pasword",
+          "default": "",
+          "private": true
         }
-      }
-    },
-    "privatedataSchema": {
-      "password": {
-        "type": "string",
-        "maxLength": 200,
-        "title": "pasword",
-        "default": ""
       }
     }
   }
