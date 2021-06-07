@@ -10,12 +10,6 @@
     "dataSchema": {
       "type": "object",
       "properties": {
-        "btnText": {
-          "type": "string",
-          "maxLength": 200,
-          "title": "btnText",
-          "default": "赞赏作者"
-        },
         "avatar": {
           "type": "string",
           "format": "uri",
@@ -23,11 +17,23 @@
           "title": "avatar",
           "default": "https://resource.nocode.com/upload/20210402/a4fd60e4-eba0-4735-bd0e-476498e53c00"
         },
+        "name": {
+          "type": "string",
+          "maxLength": 200,
+          "title": "name",
+          "default": "yan"
+        },
         "sponsor": {
           "type": "string",
           "maxLength": 200,
           "title": "sponsor",
           "default": " 万物之中，希望至美 "
+        },
+        "btnText": {
+          "type": "string",
+          "maxLength": 200,
+          "title": "btnText",
+          "default": "赞赏作者"
         },
         "qrcode": {
           "type": "string",
@@ -35,12 +41,6 @@
           "maxLength": 200,
           "title": "qrcode",
           "default": "https://resource.nocode.com/upload/20210402/d8cf1615-a542-4556-99c3-63554ac67c00"
-        },
-        "name": {
-          "type": "string",
-          "maxLength": 200,
-          "title": "name",
-          "default": "yan"
         }
       }
     }
