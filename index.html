@@ -153,6 +153,7 @@
       }
     }
   </style>
+  <script src="https://widgets-cdn.chill.so/common/sdk_1.0.1.js"></script>
   <script src="https://widgets-cdn.chill.so/common/react.js"></script>
   <script src="https://widgets-cdn.chill.so/common/react-dom.js"></script>
   <script src="https://widgets-cdn.chill.so/common/babel.js"></script>
@@ -160,40 +161,6 @@
 
 <body>
   <div id="root"></div>
-  <script type="text/babel">
-    const callbacks = {};
-    let count = 1;
-
-    window.addEventListener("message", (event) => {
-      console.log('recv message', event);
-      const type = event.data.type;
-      if (type === 'callback_resp') {
-        const callbackId = event.data.callbackId;
-        const callback = callbacks[callbackId];
-        if (callback) {
-          callback(event.data);
-        }
-      }
-    }, false);
-  
-    async function getUserConfig() {
-      return new Promise((resolve, reject) => {
-        const callbackId = `cb-${count++}`;
-        callbacks[callbackId] = function (data) {
-          if (data.error) {
-            return reject(new Error(data.error));
-          }
-          resolve(data.data);
-        }
-        console.log('api getUserConfig')
-        window.parent.postMessage({
-          type: 'api',
-          method: 'getUserConfig',
-          callbackId
-        }, '*');
-      })
-    }  
-  </script>
   <script type="text/babel">
     function WechatReword() {
       const [isCodeShow, setCodeShow] = React.useState(false);
@@ -204,8 +171,10 @@
       }
 
       React.useEffect(() => {
-        getUserConfig().then((cfg) => {
-          setConfig(cfg);
+        chillso.onReady(() => {
+          chillso.getUserConfig().then((cfg) => {
+            setConfig(cfg);
+          })
         })
       }, [])
 
