@@ -1,6 +1,5 @@
 {
-  "name": "test component",
-  "description": "嵌入到页面中，其他用户在点击按钮后，用微信扫弹出的赞赏码进行打赏。\n赞赏码可在微信内，[我] - [支付] - [收付款] - [赞赏吗] 内获得。",
+  "name": "微信赞赏",
   "type": "html",
   "html": {
     "main": "index.html",
