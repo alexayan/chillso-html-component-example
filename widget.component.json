@@ -42,6 +42,14 @@
           "default": "https://resource.nocode.com/upload/20210402/d8cf1615-a542-4556-99c3-63554ac67c00"
         }
       }
+    },
+    "uiSchema": {
+      "avatar": {
+        "ui:widget": "chillImageWidget"
+      },
+      "qrcode": {
+        "ui:widget": "chillImageWidget"
+      }
     }
   }
 }
