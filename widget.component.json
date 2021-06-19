@@ -1,5 +1,5 @@
 {
-  "name": "微信赞赏",
+  "name": "扫码赞赏",
   "type": "html",
   "html": {
     "main": "index.html",
@@ -13,33 +13,39 @@
           "type": "string",
           "format": "uri",
           "maxLength": 200,
-          "title": "avatar",
+          "title": "头像",
           "default": "https://resource.nocode.com/upload/20210402/a4fd60e4-eba0-4735-bd0e-476498e53c00"
         },
         "name": {
           "type": "string",
           "maxLength": 200,
-          "title": "name",
+          "title": "昵称",
           "default": "yan"
         },
         "sponsor": {
           "type": "string",
           "maxLength": 200,
-          "title": "sponsor",
+          "title": "描述文案",
           "default": " 万物之中，希望至美 "
         },
         "btnText": {
           "type": "string",
           "maxLength": 200,
-          "title": "btnText",
+          "title": "按钮文案",
           "default": "赞赏作者"
         },
         "qrcode": {
           "type": "string",
           "format": "uri",
           "maxLength": 200,
-          "title": "qrcode",
+          "title": "收款码",
           "default": "https://resource.nocode.com/upload/20210402/d8cf1615-a542-4556-99c3-63554ac67c00"
+        },
+        "payDesc": {
+          "type": "string",
+          "maxLength": 200,
+          "title": "收款文案",
+          "default": "微信扫一扫赞赏作者"
         }
       }
     },

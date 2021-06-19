@@ -193,7 +193,7 @@
         </div>
         <div className={isCodeShow ? 'qrcode show' : 'qrcode'} onClick={e => e.stopPropagation()}>
           <img src={config.qrcode} />
-          <div className="tip">微信扫一扫{config.btnText}</div>
+          <div className="tip">{config.payDesc}</div>
         </div>
       </div>;
     }
