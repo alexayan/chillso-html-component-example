@@ -2,8 +2,8 @@
   "name": "扫码赞赏",
   "type": "html",
   "html": {
-    "main": "index.html",
-    "static": "assets"
+    "app": "app",
+    "main": "index.html"
   },
   "userConfig": {
     "dataSchema": {
